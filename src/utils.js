@@ -32,7 +32,3 @@ export const showResult = (message) => {
   const RESULT = document.querySelector('#result');
   RESULT.innerHTML = message;
 };
-
-export const play = () => {
-
-};
