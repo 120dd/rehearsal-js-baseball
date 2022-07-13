@@ -7,18 +7,22 @@ export default class BaseballGame {
     this.submitButton = document.querySelector('#submit');
     this.userInput = document.querySelector('#user-input');
     this.result = document.querySelector('#result');
+    this.restartButton = document.querySelector('#game-restart-button');
     this.restartArticle = document.querySelector('#game-restart-article');
     this.init();
   }
 
   init() {
-    this.result = '';
+    this.result.innerHTML = '';
     this.pressSubmitButton();
     this.computerInputNumbers = this.getRandomNumber();
+    this.restartGame();
   }
 
   getRandomNumber() {
-    return createRandomNumber();
+    const randomNum = createRandomNumber();
+    console.log(randomNum);
+    return randomNum;
   }
 
   play(computerInputNumbers, userInputNumbers) {
@@ -53,6 +57,14 @@ export default class BaseballGame {
 
   showResult(data) {
     this.result.innerHTML = data;
+  }
+
+  restartGame() {
+    this.restartButton.onclick = () => {
+      this.result.innerHTML = '';
+      this.restartArticle.style.display = 'none';
+      this.computerInputNumbers = this.getRandomNumber();
+    };
   }
 }
 //
