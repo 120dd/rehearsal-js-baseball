@@ -1,6 +1,7 @@
 import { createRandomNumber } from './computeNumbers.js';
 import { checkInputs } from './inputCheck.js';
-import { checkNothing, checkStrike, showResult } from './utils.js';
+import { showResult } from './utils.js';
+import { checkNothing, checkStrike } from './compareNumber.js';
 
 export default class BaseballGame {
   constructor() {
