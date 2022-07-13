@@ -7,6 +7,7 @@ export default class BaseballGame {
     this.submitButton = document.querySelector('#submit');
     this.userInput = document.querySelector('#user-input');
     this.result = document.querySelector('#result');
+    this.restartArticle = document.querySelector('#game-restart-article');
     this.init();
   }
 
@@ -31,6 +32,7 @@ export default class BaseballGame {
       return `${BALL_COUNT}볼`;
     }
     if (STRIKE_COUNT === 3) {
+      this.restartArticle.style.display = 'block';
       return '<strong>🎉 정답을 맞추셨습니다! 🎉<strong>';
     }
     return `${BALL_COUNT}볼 ${STRIKE_COUNT}스트라이크`;
