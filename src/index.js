@@ -1,6 +1,6 @@
 import { createRandomNumber } from './computeNumbers.js';
 import { checkInputs } from './inputCheck.js';
-import { checkNothing, checkStrike } from './utils.js';
+import { checkNothing, checkStrike, showResult } from './utils.js';
 
 export default class BaseballGame {
   constructor() {
@@ -45,8 +45,12 @@ export default class BaseballGame {
         return;
       }
       const RESULT = this.play(userInputValue, this.computerInputNumbers);
-      console.log(RESULT);
+      showResult(RESULT);
     };
+  }
+
+  showResult(data) {
+    this.result.innerHTML = data;
   }
 }
 //
