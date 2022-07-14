@@ -1,4 +1,4 @@
-import { createRandomNumber } from './computeNumbers.js';
+import { getRandomNumber } from './computeNumbers.js';
 import { checkInputs } from './inputCheck.js';
 import { showResult } from './utils.js';
 import { play } from './play.js';
@@ -16,15 +16,16 @@ export default class BaseballGame {
   init() {
     this.result.innerHTML = '';
     this.pressSubmitButton();
-    this.computerInputNumbers = this.getRandomNumber();
+    this.computerInputNumbers = getRandomNumber();
     this.restartGame();
   }
 
-  getRandomNumber() {
-    const randomNum = createRandomNumber();
-    console.log(randomNum);
-    return randomNum;
-  }
+  // getRandomNumber() {
+  //   const randomNum = createRandomNumber();
+  //   console.log(randomNum);
+  //   console.log(randomNum);
+  //   return randomNum;
+  // }
 
   pressSubmitButton() {
     this.submitButton.onclick = (e) => {
@@ -34,7 +35,7 @@ export default class BaseballGame {
         alert('값을 확인해주세요!');
         return;
       }
-      const RESULT = play(userInputValue, this.computerInputNumbers);
+      const RESULT = play(this.computerInputNumbers, userInputValue);
       showResult(RESULT);
     };
   }
