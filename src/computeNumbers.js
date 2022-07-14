@@ -5,8 +5,13 @@ export const createRandomNumber = () => {
   let randomNum;
   let randomNumArray;
   do {
-    randomNum = String(MissionUtils.Random.pickNumberInRange(123, 987));
+    randomNum = window.MissionUtils.Random.pickNumberInRange(123, 987);
     randomNumArray = convertToArray(randomNum);
-  } while (!(checkOverlap(randomNumArray) && checkZero(randomNum)));
-  return randomNum;
+  } while (!(checkOverlap(randomNumArray) && checkZero(String(randomNum))));
+
+  return randomNumArray;
 };
+
+export function getRandomNumber() {
+  return createRandomNumber();
+}
